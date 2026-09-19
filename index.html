@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A Little Something</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:#08090d;color:#e9e9ef;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;display:flex;align-items:center;justify-content:center;padding:20px;overflow:hidden}
+.bg{position:fixed;inset:0;background:radial-gradient(circle at 50% 20%,#24202b 0,#111117 35%,#08090d 70%);z-index:-2}.glow{position:fixed;width:280px;height:280px;border-radius:50%;background:#b66cff22;filter:blur(55px);z-index:-1}
+.card{width:min(560px,100%);background:#0d0f15eF;border:1px solid #ffffff14;border-radius:24px;padding:28px;box-shadow:0 25px 80px #0008;backdrop-filter:blur(14px)}
+.terminal{font:14px/1.8 ui-monospace,SFMono-Regular,Consolas,monospace;color:#aeb4c2;text-align:left;direction:ltr;background:#080a0f;border-radius:16px;padding:18px;margin-bottom:22px;border:1px solid #ffffff0d;min-height:170px}
+.line{opacity:0;animation:show .55s forwards}.green{color:#8ee6ae}.pink{color:#e9a6ff}.muted{color:#666c79}@keyframes show{to{opacity:1}}
+.content{text-align:center;opacity:0;transform:translateY(10px);transition:.8s}.content.show{opacity:1;transform:none}
+h1{font-size:29px;margin:8px 0 12px}.msg{font-size:17px;line-height:2;color:#cfd2db;margin:0 auto 22px;max-width:470px}
+.heart{font-size:44px;animation:pulse 1.5s infinite}@keyframes pulse{50%{transform:scale(1.12)}}
+button{border:0;border-radius:13px;padding:12px 22px;background:#eee;color:#111;font-weight:700;font-size:15px;cursor:pointer}button:hover{transform:translateY(-1px)}
+.small{margin-top:16px;color:#777d89;font-size:12px}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<div class="bg"></div><div class="glow"></div>
+<main class="card">
+  <div class="terminal" id="terminal">
+    <div class="line" style="animation-delay:.2s">$ initializing...</div>
+    <div class="line" style="animation-delay:.9s">$ scanning recent events...</div>
+    <div class="line" style="animation-delay:1.6s" class="pink">$ warning: something went wrong.</div>
+    <div class="line green" style="animation-delay:2.3s">$ developer_status: genuinely sorry</div>
+    <div class="line" style="animation-delay:3s">$ preparing a small message...</div>
+  </div>
+  <section class="content" id="content">
+    <div class="heart">♥</div>
+    <h1>في حاجة صغيرة عايز أقولها</h1>
+    <p class="msg">
+      محمد بيقولك آسف عشان زعلتك 😍❤️
+    </p>
+    <button onclick="accept()">تم استلام الاعتذار 😂</button>
+    <div id="reply" class="small hidden">System status: الأمور إن شاء الله تمام 🤍</div>
+  </section>
+</main>
+<script>
+setTimeout(()=>document.getElementById('content').classList.add('show'),3900);
+function accept(){
+  const r=document.getElementById('reply'); r.classList.remove('hidden');
+  document.querySelector('button').textContent='❤️';
+}
+</script>
+</body>
+</html>
